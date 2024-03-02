@@ -58,7 +58,7 @@ const userResolver = {
         throw new Error(err.message || 'Internal server error');
       }
     },
-    logout: async (_, _, context) => {
+    logout: async (_, args, context) => {
       try {
         await context.logout();
         req.session.destroy((err) => {
@@ -77,7 +77,7 @@ const userResolver = {
     // users: (_, _, { req, res }) => {
     //   return users;
     // },
-    authUser: async (_, _, context) => {
+    authUser: async (_, args, context) => {
       try {
         const user = await context.getUser();
         return user;

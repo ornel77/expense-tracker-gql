@@ -1,8 +1,8 @@
-import Transaction from '../models/transaction.model';
+import Transaction from '../models/transaction.model.js';
 
 const transactionResolver = {
   Query: {
-    transactions: async (_, _, context) => {
+    transactions: async (_, args, context) => {
       try {
         if (!context.getUser()) {
           throw new Error('Unauthorized');
@@ -27,7 +27,7 @@ const transactionResolver = {
       }
     },
     // TODO
-    categoryStatistics: () => {},
+    // categoryStatistics: () => {},
   },
   Mutation: {
     createTransaction: async (_, { input }, context) => {
